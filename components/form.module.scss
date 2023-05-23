@@ -1,0 +1,55 @@
+.container {
+  font-family: var(--fontTitle);
+  padding: 1em;
+}
+.h1 {
+  font-size: 3.8em;
+  font-weight: 700;
+}
+.p {
+  width: 100%;
+  max-width: 800px;
+}
+.form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  label {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    textarea,
+    input {
+        outline: none;
+      padding: 1em;
+      border-radius: 0.8em;
+    }
+  }
+}
+
+.buttonsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.button{
+    padding: 1em 2em;
+    background: var(--fillLogo);
+}
+.buttonCancel{
+    background: none;
+    border: 2px solid var(--fillLogo);
+    border-radius: 100px;
+}
+@media screen and (min-width: "640px") {
+  .button {
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+}

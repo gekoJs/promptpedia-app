@@ -1,0 +1,85 @@
+.container {
+    border: 2px solid #cecece;
+    border-radius: 0.8em;
+    display: inline-block;
+    padding: 1em;
+    width: 100%;
+    max-width: 300px;
+    min-width: 300px;
+    min-height: 192px;
+  }
+  .user_wrapper {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    .user {
+      width: 100%;
+      display: flex;
+      gap: 0.5em;
+      .img_perfil {
+        background-color: #cecece;
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+      }
+      .n_eWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        .name,
+        .email {
+          width: 100%;
+          height: 12px;
+          border-radius: 8px;
+          background: #cecece;
+        }
+        .email {
+          width: 60%;
+        }
+      }
+    }
+    .copy_btn {
+      cursor: pointer;
+      background-color: #cecece;
+      padding: 0.6em;
+      border-radius: 100px;
+    }
+  }
+  .promptWrapper {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .prompt {
+      width: 90%;
+      height: 8px;
+      border-radius: 8px;
+      background-color: #cecece;
+    }
+    .hashtag {
+      width: 50%;
+      height: 10px;
+      background-color: #cecece;
+      border-radius: 8px;
+    }
+  }
+  
+  .editAndCancel {
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      margin-top: 1em;
+      padding: 1em 2em;
+      border-radius: 100px;
+    }
+    .buttonEdit {
+      background-color: #cecece;
+      color: #fff;
+    }
+    .buttonDelete {
+      background-color: #cecece;
+    }
+  }

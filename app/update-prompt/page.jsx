@@ -1,9 +1,8 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Form } from "@/components/index";
+import { fetchPostById } from "@utils/RQFunctions";
 
 const EditPrompt = () => {
   const router = useRouter();
@@ -16,30 +15,26 @@ const EditPrompt = () => {
     tag: "",
   });
 
+  const { data, isLoading, isError } = fetchPostById(promptId);
+
   useEffect(() => {
-    const getPromptDetails = async () => {
-      const resp = await fetch(`/api/prompt/${promptId}`);
-      const data = await resp.json();
-      setPost({
-        prompt: data.prompt,
-        tag: data.tag,
-      });
-    };
-    if (promptId) getPromptDetails();
-  }, [promptId]);
+    setPost({
+      prompt: data?.prompt,
+      tag: data?.tag,
+    });
+  }, [data]);
 
   const updatePrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
-    if(!promptId) return alert("prompt ID not found")
+    if (!promptId) return alert("prompt ID not found");
 
     try {
       const resp = await fetch(`/api/prompt/${promptId}`, {
         method: "PATCH",
         body: JSON.stringify({
           prompt: post.prompt,
-          userId: session?.user.id,
           tag: post.tag,
         }),
       });
@@ -58,7 +53,9 @@ const EditPrompt = () => {
       post={post}
       setPost={setPost}
       submitting={submitting}
-      handleSubmit={()=>{}}
+      handleSubmit={updatePrompt}
+      isLoading={isLoading}
+      isError={isError}
     />
   );
 };

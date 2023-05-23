@@ -1,0 +1,15 @@
+.container{
+ padding: 1em;
+ font-family: var(--fontTitle);
+}
+.h1{
+    font-size: 3.8em;
+    font-weight: 700;
+}
+.promptList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 2em auto 0;
+    width: fit-content;
+}

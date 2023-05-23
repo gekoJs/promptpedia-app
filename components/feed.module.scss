@@ -1,0 +1,33 @@
+.container{
+    width: 100%;
+    padding: 1em;
+}
+.form{
+    padding: 0 1em;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    input{
+        background: var(--inputBG);
+        color: var(--highlightColor);
+        padding: 1em 2em;
+        width: 100%;
+        border-radius: 1em;
+        outline: none;
+        &::placeholder{
+            color: var(--highlightColor);
+        }
+    }
+}
+
+
+
+
+.promptCardListContainer {
+    margin: 3em 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+  }
+  

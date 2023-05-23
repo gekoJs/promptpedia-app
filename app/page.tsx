@@ -1,13 +1,14 @@
+import style from "./home.module.scss";
 import { Feed } from "@components";
 
 const Home = () => (
-  <section className="w-full flex-center flex-col">
-    <h1 className="head_text text-center">
+  <section className={style.container}>
+    <h1 className={style.h1}>
       Discover & Share
-      <br className="max-md:hidden" />
-      <span className="orange_gradient text-center"> AI-Powered Prompts</span>
+      <br />
+      <span className="span_gradient"> AI-Powered Prompts</span>
     </h1>
-    <p className="desc text-center">
+    <p className={style.p}>
       Promptopia is an open-source AI prompting tool for modern world to
       discover, create and share creative prompts
     </p>

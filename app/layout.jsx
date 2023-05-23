@@ -8,16 +8,18 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }) => (
-  <html lang='en'>
+  <html lang="en">
     <body>
       <Provider>
-        <div className='main'>
-          <div className='gradient' />
+        <div className="main">
+          <div className="gradient" />
         </div>
 
-        <main className='app'>
-          <Nav />
-          {children}
+        <main className="app">
+          <div style={{ maxWidth: "1200px", margin: "auto" }}>
+            <Nav />
+            {children}
+          </div>
         </main>
       </Provider>
     </body>

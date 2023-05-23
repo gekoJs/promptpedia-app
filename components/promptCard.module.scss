@@ -1,0 +1,59 @@
+.container {
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #cecece;
+  border-radius: 0.8em;
+  display: inline-block;
+  padding: 1em;
+  font-family: var(--fontTitle);
+}
+.user_wrapper {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  .user {
+    display: flex;
+    gap: 0.5em;
+    .img_perfil {
+      border-radius: 100px;
+      min-width: 40px;
+      height: 40px;
+    }
+  }
+  .copy_btn {
+    cursor: pointer;
+    background-color: #ebeaea;
+    padding: 0.5em;
+    border-radius: 100px;
+  }
+}
+.hashtag {
+  color: var(--hashtag);
+}
+
+.editAndCancel{
+  display: flex;
+  justify-content: space-evenly;
+  button{
+    margin-top: 1em;
+    cursor: pointer;
+    padding: .5em 1em;
+    border-radius: 100px;
+  }
+  .buttonEdit{
+    background: var(--fillLogo);
+    color: #fff;
+  }
+  .buttonDelete{
+    border:2px solid var(--fillLogo);
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .button{
+    transition: transform .2s ease;
+    &:hover{
+      transform: translateY(-4px);
+    }
+  }
+}
