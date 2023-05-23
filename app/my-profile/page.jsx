@@ -4,10 +4,6 @@ import { useRouter } from "next/navigation";
 import { Profile } from "@components/index";
 import { fetchAllUserPosts } from "@utils/RQFunctions";
 
-export const metadata = {
-  title: "Promptopia",
-  description: "Discover & Share AI Prompts",
-};
 
 const MyProfile = () => {
   const router = useRouter();
