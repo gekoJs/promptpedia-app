@@ -5,7 +5,11 @@ import { getProviders } from "next-auth/react";
 export const fetchAllPosts = () => {
   return useQuery({
     queryKey: [ALL_PROMPTS],
-    queryFn: async () => await fetch("/api/prompt").then((resp) => resp.json()),
+    queryFn: async () =>
+      await fetch("/api/prompt").then((resp) => {
+        console.log(resp);
+        return resp.json();
+      }),
   });
 };
 export const fetchAllUserPosts = (userId) => {
