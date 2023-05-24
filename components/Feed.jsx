@@ -18,7 +18,7 @@ export const PromptCardList = ({
       ) : isError ? (
         <div>error...</div>
       ) : (
-        data?.prompts.map((e) => (
+        data?.map((e) => (
           <PromptCard key={e._id} post={e} handleTagClick={handleTagClick} />
         ))
       )}

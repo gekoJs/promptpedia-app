@@ -6,9 +6,8 @@ export const GET = async () => {
   try {
     await connectToDB();
     const prompts = await Prompt.find({}).populate("creator");
-    return NextResponse.json({prompts}, { status: 200 });
+    return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (error) {
-    return NextResponse.error();
-    // return new Response("Failed to fetch all prompts", { status: 404 });
+    return new Response("Failed to fetch all prompts", { status: 404 });
   }
 };
