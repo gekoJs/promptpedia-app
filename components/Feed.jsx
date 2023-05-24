@@ -28,12 +28,21 @@ export const PromptCardList = ({
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
+  const [data, setPost] = useState([]);      //original
 
   const handleSearchChange = (e) => {};
 
-  const { data, isError, isLoading, error } = fetchAllPosts();
-  
-  if(isError) console.log(error)
+  // const { data, isError, isLoading } = fetchPosts(); //replace
+
+  useEffect(() => {      //original
+    const fetchPosts = async () => {
+      const resp = await fetch("/api/prompt");
+      const data = await resp.json();
+      setPost(data);
+    };
+    fetchPosts();
+  }, []);
+
   return (
     <section className={style.container}>
       <form className={style.form}>
@@ -49,8 +58,8 @@ const Feed = () => {
       <PromptCardList
         data={data}
         handleTagClick={() => {}}
-        isLoading={isLoading}
-        isError={isError}
+        // isLoading={isLoading}
+        // isError={isError}
       />
     </section>
   );
