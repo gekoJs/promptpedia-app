@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import PromptCard from "./PromptCard";
 import style from "./feed.module.scss";
 import PromptCardSkeleton from "./PromptCardSkeleton";
@@ -28,20 +28,10 @@ export const PromptCardList = ({
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
-  const [data, setPost] = useState([]);      //original
 
   const handleSearchChange = (e) => {};
 
-  // const { data, isError, isLoading } = fetchPosts(); //replace
-
-  useEffect(() => {      //original
-    const fetchPosts = async () => {
-      const resp = await fetch("/api/prompt");
-      const data = await resp.json();
-      setPost(data);
-    };
-    fetchPosts();
-  }, []);
+  const { data, isError, isLoading } = fetchAllPosts();
 
   return (
     <section className={style.container}>
@@ -58,8 +48,8 @@ const Feed = () => {
       <PromptCardList
         data={data}
         handleTagClick={() => {}}
-        // isLoading={isLoading}
-        // isError={isError}
+        isLoading={isLoading}
+        isError={isError}
       />
     </section>
   );
