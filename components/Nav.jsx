@@ -88,7 +88,7 @@ const Nav = () => {
                   className={`${style.button_fill} ${style.button}`}
                 >
                   Sign in with{" "}
-                  <span className="span_gradient">{provider.name}</span>
+                  <span>{provider.name}</span>
                 </button>
               ))
             )}
