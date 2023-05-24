@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PromptCard from "./PromptCard";
 import style from "./feed.module.scss";
 import PromptCardSkeleton from "./PromptCardSkeleton";
@@ -27,18 +27,36 @@ export const PromptCardList = ({
 };
 
 const Feed = () => {
-  const [searchText, setSearchText] = useState("");
-
-  const handleSearchChange = (e) => {};
-
   const { data, isError, isLoading } = fetchAllPosts();
+  const [searchText, setSearchText] = useState("");
+  const [allPosts, setAllPosts] = useState();
+  const [postFiltered, setPostFiltered] = useState([])
+
+  useEffect(() => {
+    setAllPosts(data);
+  }, [data]);
+
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
+    filterPrompts(e.target.value);
+  };
+  const filterPrompts = (text) => {
+    const regex = new RegExp(text, "i"); // 'i' flag for case-insensitive search
+    const searched = allPosts.filter(
+      (item) =>
+        regex.test(item.creator.username) ||
+        regex.test(item.tag) ||
+        regex.test(item.prompt)
+    );
+    setPostFiltered(searched);
+  };
 
   return (
     <section className={style.container}>
       <form className={style.form}>
         <input
           type="text"
-          placeholder="Search for a tag or UserName"
+          placeholder="Search for a prompt, tag or user"
           value={searchText}
           onChange={handleSearchChange}
           className={style.input}
@@ -46,11 +64,12 @@ const Feed = () => {
       </form>
 
       <PromptCardList
-        data={data}
+        data={postFiltered.length > 0 ? postFiltered : allPosts}
         handleTagClick={() => {}}
         isLoading={isLoading}
         isError={isError}
       />
+      
     </section>
   );
 };

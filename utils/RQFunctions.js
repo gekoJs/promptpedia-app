@@ -7,7 +7,6 @@ export const fetchAllPosts = () => {
     queryKey: [ALL_PROMPTS],
     queryFn: async () =>
       await fetch("/api/prompt").then((resp) => {
-        console.log(resp);
         return resp.json();
       }),
   });
