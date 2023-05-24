@@ -10,7 +10,7 @@ const Provider = ({ children, session }: { children: any; session: any }) => {
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={session}>{children}</SessionProvider>
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
+      {/* <ReactQueryDevtools initialIsOpen={false} position="bottom-right" /> */}
     </QueryClientProvider>
   );
 };

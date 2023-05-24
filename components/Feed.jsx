@@ -32,6 +32,7 @@ const Feed = () => {
   const handleSearchChange = (e) => {};
 
   const { data, isError, isLoading, error } = fetchAllPosts();
+  
   if(isError) console.log(error)
   return (
     <section className={style.container}>
