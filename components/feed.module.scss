@@ -14,8 +14,12 @@
         width: 100%;
         border-radius: 1em;
         outline: none;
+        transition: transform .2s ease;
         &::placeholder{
             color: var(--highlightColor);
+        }
+        &:hover{
+            transform: translateY(-4px)
         }
     }
 }
